@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+:root {
+  --background: #171717;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Hide scrollbar globally */
+* {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}
+
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  background: black;
+  color: var(--foreground);
+  font-family:
+    var(--font-funnel-sans),
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+}
+
+.vinyl-disc {
+  position: relative;
+  background:
+    radial-gradient(circle at center, #111 0%, #000 65%),
+    repeating-radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(0, 0, 0, 0.4) 1px,
+      rgba(255, 255, 255, 0.04) 2px,
+      rgba(0, 0, 0, 0.6) 3px);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.8),
+    inset 0 0 40px rgba(255, 255, 255, 0.04);
+}
+
+.book-perspective {
+  perspective: 1400px;
+}
+
+.book-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.book-pages {
+  background: linear-gradient(to bottom, #fff, #eaeaea);
+  transform: translateZ(-8px);
+  border-radius: 0 10px 10px 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.15);
+}
+
+.book-cover {
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.book-open {
+  transform: rotateY(-22deg) translateZ(2px);
+}
+
+/* .trail-img {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+} */
+
+.trail-img {
+  position: absolute;
+  width: 200px;
+  height: 225px;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: white;
+  transform: scale(1);
+  transition: transform 0.22s ease-out;
+  will-change: transform;
+}
+
+.signature path {
+  fill: none;
+  stroke: white;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.loader-path {
+  fill: none !important;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+}
+
+
+/* .stack-section {
+  padding-top: 40vh;
+} */
+
+/* .stack-card {
+  width: 100%;
+  max-width: 1020px; 
+  /* margin: 0 auto 40px auto;
+} */
+
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  font-optical-sizing: none;
+}
+
+
+@layer utilities {
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+
+  .rotate-y-minus-20 {
+    transform: rotateY(-20deg);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 2.5s linear infinite;
+}
+
+
+@keyframes moveRight {
+  from { transform: translateX(-40%); }
+  to { transform: translateX(40%); }
+}
+
+@keyframes moveLeft {
+  from { transform: translateX(40%); }
+  to { transform: translateX(-40%); }
+}
+
+.animate-right {
+  animation: moveRight 6s linear infinite paused;
+}
+
+.animate-left {
+  animation: moveLeft 6s linear infinite paused;
+}
+
+.group.revealed:hover .animate-right,
+.group.revealed:hover .animate-left {
+  animation-play-state: running;
+}
+
+
+@keyframes float {
+  0% {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      translateY(0);
+  }
+  50% {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      translateY(-20px);
+  }
+  100% {
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+      translateY(0);
+  }
+}
