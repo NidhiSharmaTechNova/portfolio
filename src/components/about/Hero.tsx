@@ -11,12 +11,11 @@ import gsap from "gsap";
 // const images = [img1.src, img2.src, img3.src, img4.src];
 
 const images = [
-  "/images/UyHDhzBDZAHkZ1TB8W4GIvByAdg.avif",
-  "/images/SzbAMeOcil2a6pOPPU2HhMTAvI.avif",
-  "/images/LreUjZXyJtlHT57BKWERZ4S0b8.png",
-  "/images/LHoHCFH6t06AUW34ncr65e44c4.png",
+  "/images/img1.avif",
+  "/images/img2.avif",
+  "/images/img3.png",
+  "/images/img4.png",
 ];
-
 
 export default function ImageTrail() {
   const container = useRef<HTMLDivElement | null>(null);
