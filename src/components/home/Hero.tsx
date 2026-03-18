@@ -100,7 +100,7 @@ export default function Hero() {
   const rafRef = useRef<number | null>(null);
   const isMountedRef = useRef(true);
 
-  const DOT_SIZE = 5;       // px — visual dot size
+  const DOT_SIZE = window.innerWidth < 640 ? 3 : 5;       // px — visual dot size
   const GAP = 27;           // px — spacing between dot centers
 
   const buildGrid = useCallback(() => {
@@ -129,14 +129,22 @@ export default function Hero() {
     for (let i = 0; i < total; i++) {
       const span = document.createElement("span");
       span.className = "dot";
+      // span.style.cssText = `
+      //   display:block;
+      //   width:${DOT_SIZE}px;
+      //   height:${DOT_SIZE}px;
+      //   background:white;
+      //   will-change:transform;
+      //   place-self:center;
+      // `;
       span.style.cssText = `
-        display:block;
-        width:${DOT_SIZE}px;
-        height:${DOT_SIZE}px;
-        background:white;
-        will-change:transform;
-        place-self:center;
-      `;
+  display:block;
+  width:${DOT_SIZE}px;
+  height:${DOT_SIZE}px;
+  background:white;
+  will-change:transform;
+  place-self:center;
+`;
       frag.appendChild(span);
       dotsRef.current.push(span);
     }
@@ -167,9 +175,9 @@ export default function Hero() {
         const dx = smx - (r.left + r.width * 0.5);
         const dy = smy - (r.top + r.height * 0.5);
         const d = dx * dx + dy * dy;
-        const influence = Math.max(0, 1 - d / (isMobile ? 20000 : 60000));
+        const influence = Math.max(0, 1 - d / (isMobile ? 30000 : 60000));
         const scale = isMobile
-          ? 1 + influence * 0.4
+          ? 1 + influence * 0.9   // thoda bada hover effect
           : 1 + influence * 1.2 + influence * influence * 1.2;
         dot.style.transform = `scale(${scale})`;
       }
@@ -291,13 +299,13 @@ export default function Hero() {
 //   return (
 //     <div className="relative w-full min-h-screen flex flex-col px-4 sm:px-6 lg:px-10 pt-6 bg-black overflow-hidden">
 
-      
+
 //       <div
 //         id="dotGrid"
 //         className="flex flex-wrap w-full gap-4 sm:gap-6 md:gap-8 h-[70vh] sm:h-[75vh] lg:h-[80vh]"
 //       >
 
-     
+
 
 //         {Array.from({ length: 800 }).map((_, i) => (  
 //           <span
@@ -307,7 +315,7 @@ export default function Hero() {
 //         ))}
 //       </div>
 
-     
+
 
 //       <h1 className="absolute bottom-0 left-0 w-full bg-black font-bold text-[70px] min-[660px:text-[90px] min-[820px]:text-[110px] min-[1000px]:text-[120px] min-[1200px]:text-[140px] leading-[1] px-6">
 //         MOHIT SHARMA
@@ -319,24 +327,24 @@ export default function Hero() {
 
 
 
-      // for (const dot of dots) {
-      //   const r = dot.getBoundingClientRect();
+// for (const dot of dots) {
+//   const r = dot.getBoundingClientRect();
 
-      //   const dx = smoothMouse.x - (r.left + r.width * 0.5);
-      //   const dy = smoothMouse.y - (r.top + r.height * 0.5);
+//   const dx = smoothMouse.x - (r.left + r.width * 0.5);
+//   const dy = smoothMouse.y - (r.top + r.height * 0.5);
 
-      //   const d = dx * dx + dy * dy;
+//   const d = dx * dx + dy * dy;
 
-      //   const influence = Math.max(0, 1 - d / 180000);
+//   const influence = Math.max(0, 1 - d / 180000);
 
-      //   // const scale = 1 + influence * 2.8 + influence * influence * 2.8;
-      //   const scale = 1 + influence * 1.2 + influence * influence * 1.2;
+//   // const scale = 1 + influence * 2.8 + influence * influence * 2.8;
+//   const scale = 1 + influence * 1.2 + influence * influence * 1.2;
 
-      //   dot.style.transform = `scale(${scale})`;
-      // }
+//   dot.style.transform = `scale(${scale})`;
+// }
 
-       {/* Name */}
-      {/* <h1 className="
+{/* Name */ }
+{/* <h1 className="
       absolute bottom-0 left-0 w-full bg-black
       font-[700]
       text-[60px] leading-[60px]
@@ -346,4 +354,4 @@ export default function Hero() {
       px-10
 
       "> */}
-      {/* <h1 className=" absolute bottom-0 left-0 w-full bg-black font-bold text-[80px] max-[660px]:text-[70px] max-[780px]:text-[120px] min-[820px]:text-[140px] min-[1000px]:text-[120px] min-[1200px]:text-[140px] leading-[1] px-6 " > MOHIT SHARMA </h1> */}
+{/* <h1 className=" absolute bottom-0 left-0 w-full bg-black font-bold text-[80px] max-[660px]:text-[70px] max-[780px]:text-[120px] min-[820px]:text-[140px] min-[1000px]:text-[120px] min-[1200px]:text-[140px] leading-[1] px-6 " > MOHIT SHARMA </h1> */ }
