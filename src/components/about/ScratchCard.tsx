@@ -177,20 +177,8 @@ export default function ScratchFloatCard() {
       className={`relative w-[350px] h-[350px] rounded-md overflow-hidden bg-black shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${
         revealed ? "group revealed" : ""
       }`}
-      style={{
-        cursor: `url(/assets/cursor.svg) 16 16, auto`,
-      }}
     >
-      {/* BACK CARD */}
-      {/* <div className="absolute inset-0 bg-black">
-        <Image
-          src={cover}
-          alt=""
-          fill
-          className="object-cover opacity-65"
-        /> */}
-
-        {/* TEXT */}
+      
         <div className="absolute inset-0 z-20 flex flex-col justify-center items-center gap-4 pointer-events-none">
           <div className="animate-right w-max px-6 py-2 text-[70px] font-black text-white bg-black rounded-full whitespace-nowrap">
             PLAY PLAY PLAY PLAY PLAY PLAY
