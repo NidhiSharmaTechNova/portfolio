@@ -48,6 +48,8 @@ import vinyl5 from "@/assets/download (4).webp";
 import InteractiveCard from "./InteractiveCard";
 import Canvas from "./Canvas";
 import ScratchFloatCard from "./ScratchCard";
+import profile from "@/assets/profile.png";
+import ken from "@/assets/ken.webp";
 
 
 export default function DragComponent() {
@@ -92,7 +94,7 @@ export default function DragComponent() {
               <div className="relative flex items-center justify-between mb-5">
                 <div className="flex items-center gap-[14px]">
                   <Image
-                    src={img.src}
+                    src={profile.src}
                     alt="profile"
                     className="w-[50px] h-[50px] md:w-[56px] md:h-[56px] rounded-full object-cover"
                   />
@@ -267,7 +269,7 @@ export default function DragComponent() {
 
             <div
               className="absolute  top-[21.7%] left-[53.9%] translate-x-[220px] translate-y-[160px] rotate-[-18deg] pointer-events-none drop-shadow-[0_8px_15px_rgba(0,0,0,0.25)]">
-              <Image src={img5} alt="" className=" w-[140px] block rounded-[10px]" />
+              <Image src={ken.src} alt="" className=" w-[140px] block rounded-[10px]" />
             </div>
 
 
@@ -467,7 +469,7 @@ export default function DragComponent() {
                 <div className="relative flex items-center justify-between mb-5">
                   <div className="flex items-center gap-[14px]">
                     <Image
-                      src={img.src}
+                      src={profile.src}
                       alt="profile"
                       className="w-[56px] h-[56px] rounded-full object-cover"
                     />
