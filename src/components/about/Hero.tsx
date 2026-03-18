@@ -73,7 +73,8 @@ export default function ImageTrail() {
     const size = Math.min(rect.width * 0.12, 180);
 
     const el = document.createElement("img");
-    el.src = images[imgIndex.current];
+    // el.src = images[imgIndex.current];
+    el.src = `${window.location.origin}${images[imgIndex.current]}`;
     imgIndex.current = (imgIndex.current + 1) % images.length;
 
     containerEl.appendChild(el);
