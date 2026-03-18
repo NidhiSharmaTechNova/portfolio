@@ -92,7 +92,7 @@ export default function DragComponent() {
               <div className="relative flex items-center justify-between mb-5">
                 <div className="flex items-center gap-[14px]">
                   <Image
-                    src={img}
+                    src={img.src}
                     alt="profile"
                     className="w-[50px] h-[50px] md:w-[56px] md:h-[56px] rounded-full object-cover"
                   />
@@ -467,7 +467,7 @@ export default function DragComponent() {
                 <div className="relative flex items-center justify-between mb-5">
                   <div className="flex items-center gap-[14px]">
                     <Image
-                      src={img}
+                      src={img.src}
                       alt="profile"
                       className="w-[56px] h-[56px] rounded-full object-cover"
                     />
