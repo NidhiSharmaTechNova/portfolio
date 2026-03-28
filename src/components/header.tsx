@@ -196,9 +196,12 @@ export default function Header() {
 
 
 
-      <div className={`fixed inset-0 bg-black z-40 transition-transform duration-500 min-[809px]:hidden
+      {/* <div className={`fixed inset-0 bg-black z-40 transition-transform duration-500 min-[809px]:hidden
       ${open ? "translate-y-0" : "-translate-y-full"}
-    `}>
+    `}> */}
+    <div className={`fixed top-0 right-0 h-full w-[80%] bg-black z-40 transition-transform duration-500 min-[809px]:hidden
+  ${open ? "translate-x-0" : "translate-x-full"}
+`}>
 
         <div className="flex justify-between items-center p-6">
 
