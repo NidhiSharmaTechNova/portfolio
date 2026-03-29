@@ -84,7 +84,8 @@ export default function DragComponent() {
   return (
     <div>
       <div>
-        <div className="md:hidden min-h-screen bg-black flex flex-col items-center justify-between py-10">
+        {/* <div className="md:hidden min-h-screen bg-black flex flex-col items-center justify-between py-10"> */}
+        <div className="md:hidden h-screen overflow-hidden bg-black flex flex-col items-center justify-between">
 
           {/* CARD */}
           <div className="w-full max-w-[560px] px-4">
@@ -94,7 +95,7 @@ export default function DragComponent() {
               <div className="relative flex items-center justify-between mb-5">
                 <div className="flex items-center gap-[14px]">
                   <Image
-                    src={profile.src}
+                    src={profile}
                     alt="profile"
                     className="w-[50px] h-[50px] md:w-[56px] md:h-[56px] rounded-full object-cover"
                   />
@@ -243,12 +244,12 @@ export default function DragComponent() {
 
 
             {/* ================= FLOATING IMAGES ================= */}
-            <img
-              src={img1.src}
+           <Image src={img1}
+           alt="floting img"
               className={`${float} absolute top-[53%] left-[42.6%] translate-x-[-260px] translate-y-[-220px] rotate-[-12deg] p-[7px_7px_30px_7px] bg-white rounded-[5px]
-    transition-transform duration-300 ease-in-out hover:scale-[1.03]`}
-            // style={{ ...floatStyle(-260, -220, 12) }}
-            />
+    transition-transform duration-300 ease-in-out hover:scale-[1.03]`}>
+
+           </Image>
             <Image
 
               src={img2}
@@ -269,7 +270,7 @@ export default function DragComponent() {
 
             <div
               className="absolute  top-[21.7%] left-[53.9%] translate-x-[220px] translate-y-[160px] rotate-[-18deg] pointer-events-none drop-shadow-[0_8px_15px_rgba(0,0,0,0.25)]">
-              <Image src={ken.src} alt="" className=" w-[140px] block rounded-[10px]" />
+              <Image src={ken} alt="" className=" w-[140px] block rounded-[10px]" />
             </div>
 
 
@@ -469,7 +470,7 @@ export default function DragComponent() {
                 <div className="relative flex items-center justify-between mb-5">
                   <div className="flex items-center gap-[14px]">
                     <Image
-                      src={profile.src}
+                      src={profile}
                       alt="profile"
                       className="w-[56px] h-[56px] rounded-full object-cover"
                     />
